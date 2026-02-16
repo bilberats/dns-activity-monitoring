@@ -4,10 +4,10 @@
 
 INTERVAL=${1:-1}      # seconds between samples
 DURATION=${2:-10}     # total duration
-OUTPUT="data/nic_power.csv"
+OUTPUT="../data/measures/nic_power.csv"
 IFACE="eno1"
 
-echo "timestamp,rx_bytes,tx_bytes,total_bytes" > "$OUTPUT"
+sudo echo "timestamp,rx_bytes,tx_bytes,total_bytes" > "$OUTPUT"
 
 NUM_SAMPLES=$((DURATION / INTERVAL))
 for ((i=0; i<NUM_SAMPLES; i++)); do
