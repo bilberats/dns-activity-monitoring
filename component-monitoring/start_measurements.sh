@@ -16,7 +16,7 @@ ssh thd@157.159.55.165 "cd ~/dns-activity-monitoring/component-monitoring && bas
 SSH_MEASUREMENTS_PID=$!
 
 # Launch local power meter
-python3 ./component-monitoring/yoctowatt_log_fast.py --seconds "$DURATION" &
+python3 ./component-monitoring/yoctowatt_log_fast.py --seconds "$DURATION" --out "$MEASURE_DIR/measures/yoctowatt.csv" &
 
 LOCAL_PID=$!
 
