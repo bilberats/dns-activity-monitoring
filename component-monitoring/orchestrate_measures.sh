@@ -5,6 +5,10 @@ set -e
 
 INTERVAL=${1:-1}      # seconds between samples
 DURATION=${2:-10}     # total duration
+MEASURE_DIR=${3:-"/data"}
+
+# Create measures directory if it doesn't exist
+mkdir -p "$MEASURE_DIR/measures"
 
 SCRIPTS=(
   "./measurements_scripts/measure_cpu.sh"
