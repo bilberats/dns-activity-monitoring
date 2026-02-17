@@ -8,7 +8,7 @@ DURATION=${2:-10}     # total duration
 MEASURE_DIR=${3:-"/data"}
 
 # Create measures directory if it doesn't exist
-mkdir -p "$MEASURE_DIR/measures"
+mkdir -p "../$MEASURE_DIR/measures"
 
 SCRIPTS=(
   "./measurements_scripts/measure_cpu.sh"
@@ -24,7 +24,7 @@ echo "Starting measurements at $(date)"
 
 for script in "${SCRIPTS[@]}"; do
     echo "Launching $script"
-    sudo bash "$script" "$INTERVAL" "$DURATION" &
+    sudo bash "$script" "$INTERVAL" "$DURATION" "$MEASURE_DIR" &
     PIDS+=($!)
 done
 
