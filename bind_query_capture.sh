@@ -1,9 +1,11 @@
 #!/bin/bash
 
 LOG_FILE="/var/log/named/client.log"
-OUTPUT_FILE="data/logs/bind_queries_captured.log"
 DURATION=${1:-60}     # seconds
 INTERVAL=${2:-1}      # seconds
+MEASURE_DIR=${3:-"/data"}
+OUTPUT_FILE="$MEASURE_DIR/logs/bind_queries_captured.log"
+
 
 # Count lines at start
 START_LINES=$(wc -l < "$LOG_FILE")

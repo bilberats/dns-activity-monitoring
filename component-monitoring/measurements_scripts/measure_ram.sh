@@ -11,7 +11,8 @@
 # Usage: ./log_llc.sh <interval_sec> <duration_sec> <output.csv>
 INTERVAL=${1:-1}      # seconds between samples, default 1s
 DURATION=${2:-10}     # total duration, default 10s
-OUTPUT="../data/measures/ram_power.csv"  # output CSV file, default llc_log.csv
+MEASURE_DIR=${3:-"/data"}
+OUTPUT="../$MEASURE_DIR/measures/ram_power.csv"
 
 sudo echo "timestamp,LLC-loads,LLC-stores" > "$OUTPUT"
 

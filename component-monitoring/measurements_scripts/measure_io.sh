@@ -4,7 +4,8 @@
 
 INTERVAL=${1:-1}      # seconds between samples
 DURATION=${2:-10}     # total duration
-OUTPUT="../data/measures/io_power.csv"
+MEASURE_DIR=${3:-"/data"}
+OUTPUT="../$MEASURE_DIR/measures/io_power.csv"
 DEVICE="sda"    # your block device (e.g., sda, nvme0n1)
 
 sudo echo "timestamp,read_kB,write_kB,total_kB" > "$OUTPUT"

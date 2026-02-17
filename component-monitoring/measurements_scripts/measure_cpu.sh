@@ -4,7 +4,8 @@
 
 INTERVAL=${1:-1}      # seconds between samples
 DURATION=${2:-10}     # total duration
-OUTPUT="../data/measures/cpu_power.csv"
+MEASURE_DIR=${3:-"/data"}
+OUTPUT="../$MEASURE_DIR/measures/cpu_power.csv"
 
 sudo turbostat -i $INTERVAL -n $DURATION --quiet -S --show Time_Of_Day_Seconds,PkgWatt,CorWatt,Busy%,Bzy_MHz,Avg_MHz,C6%,CoreTmp,PkgTmp,LLCkRPS,LLC%hit | awk '{$1=$1}1' OFS=, > $OUTPUT
 

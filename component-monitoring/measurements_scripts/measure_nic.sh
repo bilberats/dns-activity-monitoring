@@ -4,7 +4,8 @@
 
 INTERVAL=${1:-1}      # seconds between samples
 DURATION=${2:-10}     # total duration
-OUTPUT="../data/measures/nic_power.csv"
+MEASURE_DIR=${3:-"/data"}
+OUTPUT="../$MEASURE_DIR/measures/nic_power.csv"
 IFACE="eno1"
 
 sudo echo "timestamp,rx_bytes,tx_bytes,total_bytes" > "$OUTPUT"
